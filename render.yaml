@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: ytxxternal14
+    runtime: static
+    buildCommand: echo "No build needed"
+    staticPublishPath: .
+    headers:
+      - path: /*
+        name: X-Content-Type-Options
+        value: nosniff
+      - path: /*
+        name: Referrer-Policy
+        value: strict-origin-when-cross-origin
+      - path: /*.png
+        name: Cache-Control
+        value: public, max-age=604800
+      - path: /favicon.ico
+        name: Cache-Control
+        value: public, max-age=604800
